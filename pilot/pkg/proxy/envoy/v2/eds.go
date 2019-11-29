@@ -59,7 +59,7 @@ import (
 //
 // TODO: for selector-less services (mesh expansion), skip pod processing
 // TODO: optimize the code path for ExternalEndpoint, no additional processing needed
-// TODO: if a service doesn't have split traffic - we can also skip pod and lable processing
+// TODO: if a service doesn't have split traffic - we can also skip pod and label processing
 // TODO: efficient label processing. In alpha3, the destination policies are set per service, so
 // we may only need to search in a small list.
 
@@ -133,7 +133,7 @@ func buildEnvoyLbEndpoint(uid string, family model.AddressFamily, address string
 	}
 
 	// Istio telemetry depends on the metadata value being set for endpoints in the mesh.
-	// Istio endpoint level tls transport socket configuation depends on this logic
+	// Istio endpoint level tls transport socket configuration depends on this logic
 	// Do not remove
 	ep.Metadata = util.BuildLbEndpointMetadata(uid, network, tlsMode)
 
@@ -164,7 +164,7 @@ func networkEndpointToEnvoyEndpoint(e *model.NetworkEndpoint, tlsMode string) (*
 	}
 
 	// Istio telemetry depends on the metadata value being set for endpoints in the mesh.
-	// Istio endpoint level tls transport socket configuation depends on this logic
+	// Istio endpoint level tls transport socket configuration depends on this logic
 	// Do not remove
 	ep.Metadata = util.BuildLbEndpointMetadata(e.UID, e.Network, tlsMode)
 
